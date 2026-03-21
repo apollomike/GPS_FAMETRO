@@ -92,9 +92,12 @@ const videoLinks = {
 
 function showFinalVideo() {
     
+    const logo = document.querySelector('.logo-container');
+    if (logo) logo.style.display = 'none';
+
     transition('search-screen', 'video-screen');
-    
-    
+
+
     const player = document.getElementById('youtube-player');
 
     let routeKey = `${userChoices.entry}_para_${userChoices.targetBlock}_${userChoices.room.replace(/ /g, '_')}`;
