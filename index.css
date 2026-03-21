@@ -1,0 +1,141 @@
+:root {
+    --verde-escuro: #002b11;
+    --verde-acentuado: #00ff55;
+    --branco-verde: #f0fff4;
+}
+
+body {
+    margin: 0;
+    background-color: var(--verde-escuro);
+    color: var(--branco-verde);
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+/* Logo Setup */
+.logo-container {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+
+.logo-placeholder {
+    text-align: center;
+}
+
+.logo {
+    max-width: 180px;
+    display: block;
+}
+
+.logo-text {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+/* Typography */
+.concrete-font {
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h1 span { color: var(--verde-acentuado); }
+
+/* Screens */
+.screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.hidden { display: none; }
+
+/* Buttons */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 350px;
+}
+
+button {
+    padding: 22px;
+    background: transparent;
+    border: 3px solid var(--branco-verde);
+    color: var(--branco-verde);
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: var(--branco-verde);
+    color: var(--verde-escuro);
+}
+
+/* Search Bar & Dynamic Autocomplete */
+.search-container {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: var(--branco-verde);
+    border-radius: 4px;
+}
+
+#autocomplete-list {
+    position: absolute;
+    width: 100%;
+    background: white;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: 0 0 4px 4px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+#autocomplete-list li {
+    padding: 15px 20px;
+    color: #333;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+}
+
+#autocomplete-list li:hover {
+    background: var(--verde-acentuado);
+    color: #000;
+}
+
+/* Animations */
+.fade-in { animation: fadeIn 0.8s ease forwards; }
+.slide-down { animation: slideDown 0.6s ease forwards; }
+.slide-up { animation: slideUp 0.6s ease forwards; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideDown { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

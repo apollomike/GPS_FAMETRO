@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Unifametro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+        <header class="logo-container fade-in">
+            <div class="logo-placeholder">
+                <img src="https://unifametro.edu.br/wp-content/uploads/2024/11/UNIFAMETRO-Favicon.png" alt="UNIFAMETRO" class="logo">
+                <span class="logo-text"> <strong>UNIFAMETRO</strong></span>
+            </div>
+        </header>
+
+        <section id="welcome-screen" class="screen">
+            <h1 class="concrete-font slide-down">Olá, bem vindo ao <br><span>GPS UNIFAMETRO</span></h1>
+        </section>
+
+        <section id="entry-screen" class="screen hidden">
+            <h2 class="concrete-font">Por qual bloco você entrou?</h2>
+            <div class="button-group slide-up">
+                <button onclick="setEntry('A')">Bloco A <small>(Principal)</small></button>
+                <button onclick="setEntry('B')">Bloco B <small>(Estacionamento)</small></button>
+            </div>
+        </section>
+
+        <section id="target-screen" class="screen hidden">
+            <h2 class="concrete-font">Para qual bloco deseja ir?</h2>
+            <div class="button-group slide-up">
+                <button onclick="setTargetBlock('A')">IR PARA O BLOCO A</button>
+                <button onclick="setTargetBlock('B')">IR PARA O BLOCO B</button>
+            </div>
+        </section>
+
+        <section id="search-screen" class="screen hidden">
+            <h2 class="concrete-font">Qual o seu destino?</h2>
+            <div class="search-container slide-up">
+                <input type="text" id="room-search" placeholder="Digite a sala ou local..." oninput="filterRooms()" autocomplete="off">
+                <ul id="autocomplete-list"></ul>
+            </div>
+        </section>
+
+        <section id="video-screen" class="screen hidden">
+    <h2 id="final-title" class="concrete-font">Siga as instruções:</h2>
+    <div class="video-container fade-in">
+        <iframe 
+            id="youtube-player" 
+            width="100%" 
+            height="315" 
+            src="" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+        <button class="reset-btn" onclick="location.reload()">NOVA PESQUISA</button>
+    </div>
+</section>
