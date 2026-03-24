@@ -12,7 +12,7 @@ body {
     overflow: hidden;
 }
 
-/* Logo Setup */
+
 .logo-container {
     position: absolute;
     top: 20px;
@@ -37,7 +37,7 @@ body {
     opacity: 0.8;
 }
 
-/* Typography */
+
 .concrete-font {
     font-weight: 900;
     text-transform: uppercase;
@@ -48,7 +48,7 @@ body {
 
 h1 span { color: var(--verde-acentuado); }
 
-/* Screens */
+
 .screen {
     height: 100vh;
     display: flex;
@@ -60,7 +60,7 @@ h1 span { color: var(--verde-acentuado); }
 
 .hidden { display: none; }
 
-/* Buttons */
+
 .button-group {
     display: flex;
     flex-direction: column;
@@ -85,11 +85,19 @@ button:hover {
     color: var(--verde-escuro);
 }
 
-/* Search Bar & Dynamic Autocomplete */
+
 .search-container {
     width: 100%;
     max-width: 450px;
     position: relative;
+}
+
+.container-principal {
+    
+    min-height: 450px; 
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out; 
 }
 
 input {
@@ -131,7 +139,61 @@ input {
     color: #000;
 }
 
-/* Animations */
+#animated-bg {
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;      
+    background-image: url("https://gironacidade.com.br/wp-content/uploads/2020/12/unifametro2-1.jpg");
+    opacity: 0.1;
+    background-size: cover;         
+    background-position: center;     
+    background-repeat: no-repeat;    
+
+    overflow: hidden;  
+}
+
+#animated-bg::before,
+#animated-bg::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(0, 74, 141, 0.03); 
+    animation: moverParticulas 20s infinite linear;
+}
+
+#animated-bg::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+#animated-bg::after {
+    bottom: 15%;
+    right: 15%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 193, 7, 0.04); 
+    animation-duration: 25s;
+    animation-direction: reverse; 
+}
+
+@keyframes moverParticulas {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(50px, 30px) scale(1.1);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
 .fade-in { animation: fadeIn 0.8s ease forwards; }
 .slide-down { animation: slideDown 0.6s ease forwards; }
 .slide-up { animation: slideUp 0.6s ease forwards; }
