@@ -17,7 +17,44 @@ let userChoices = { entry: '', targetBlock: '', room: '' };
 
 
 const videoLinks = {
-    "A_para_A_ADMINISTRATIVO": "KDg90L66kZM",
+    "A_PARA_A_ADMINISTRATIVO": "KDg90L66kZM",       
+    "B_PARA_A_ADMINISTRATIVO": "4XKGfziuw5c",
+    "A_PARA_A_COORDENAÇÕES_DE_CURSO": "",
+    "B_PARA_A_COORDENAÇÕES_DE_CURSO": "",
+    "A_PARA_A_DIRETORIAS": "",
+    "B_PARA_A_DIRETORIAS": "",
+    "A_PARA_A_TUTORIAS_1_A_7": "",
+    "B_PARA_A_TUTORIAS_1_A_7": "",
+    "A_PARA_A_ANATOMIA_1_E_2": "",   
+    "B_PARA_A_ANATOMIA_1_E_2": "",
+    "A_PARA_A_ANATOMIA_3D": "",
+    "B_PARA_A_ANATOMIA_3D": "",
+    "A_PARA_A_LABORATÓRIO_DE_INFORMATICA_1_A_3": "",
+    "B_PARA_A_LABORATÓRIO_DE_INFORMATICA_1_A_3": "",
+    "A_PARA_A_LABORATÓRIO_DE_HARDWARE": "",     
+    "B_PARA_A_LABORATÓRIO_DE_HARDWARE": "",
+    "A_PARA_A_SALAS_401_A_416": "",
+    "B_PARA_A_SALAS_401_A_416": "",
+    "A_PARA_A_SALAS_301_A_320": "",
+    "B_PARA_A_SALAS_301_A_320": "",
+    "A_PARA_A_SALAS_201_A_220": "",
+    "B_PARA_A_SALAS_201_A_220": "",
+    "A_PARA_A_ATENDIMENTO_AO_ALUNO": "",
+    "B_PARA_A_ATENDIMENTO_AO_ALUNO": "",
+    "A_PARA_A_QUERO_SER_ALUNO": "",
+    "B_PARA_A_QUERO_SER_ALUNO": "",
+    "A_PARA_A_AUDITÓRIO_1_E_2": "",
+    "B_PARA_A_AUDITÓRIO_1_E_2": "",
+    "A_PARA_A_NEGOCIAÇÃO": "",
+    "B_PARA_A_NEGOCIAÇÃO": "",
+    "A_PARA_A_SALA_DE_ESTUDOS": "",
+    "B_PARA_A_SALA_DE_ESTUDOS": "28sL5hjty8o",
+    "A_PARA_A_BIBLIOTECA": "",
+    "B_PARA_A_BIBLIOTECA": "",
+    "A_PARA_A_ACHADOS_E_PERDIDOS": "",
+    "B_PARA_A_ACHADOS_E_PERDIDOS": "",
+    "A_PARA_A_SALÃO_NOBRE": "",
+    "B_PARA_A_SALÃO_NOBRE": "",   
 
 };
 
@@ -79,7 +116,7 @@ function filterRooms() {
             const numInput = parseInt(input);
             if (numInput >= start && numInput <= end) return true;
         }
-        return item.includes(input);
+       return item.toUpperCase().startsWith(input.toUpperCase());
     });
 
     filtered.forEach(item => {
@@ -98,25 +135,28 @@ function selectRoom(item) {
 }
 
 function showFinalVideo() {
-   
     const logo = document.querySelector('.logo-container');
     if (logo) logo.style.display = 'none';
 
     transition('search-screen', 'video-screen');
 
     const player = document.getElementById('youtube-player');
+
+    let roomClean = userChoices.room.trim().toUpperCase().replace(/\s+/g, '_');
     
-   
-    let routeKey = `${userChoices.entry}_para_${userChoices.targetBlock}_${userChoices.room.replace(/ /g, '_')}`;
+    let entryClean = userChoices.entry.toUpperCase();
+    let targetClean = userChoices.targetBlock.toUpperCase();
+
+    let routeKey = `${entryClean}_PARA_${targetClean}_${roomClean}`;
     
-    console.log("Procurando vídeo para:", routeKey);
+    console.log("Chave gerada pelo sistema:", routeKey);
+
     let videoId = videoLinks[routeKey];
 
     if (videoId) {
         player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
     } else {
-        console.error("Rota não mapeada:", routeKey);
-     
+        console.error("Verifique seu objeto videoLinks! Não existe a chave:", routeKey);
         player.src = "https://www.youtube.com/embed/dQw4w9WgXcQ"; 
     }
 }
