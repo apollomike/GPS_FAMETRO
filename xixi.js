@@ -1,9 +1,10 @@
 const roomsData = {
     'A': [
-        'SALAS 201 a 220', 'SALAS 301 a 320', 'SALAS 401 a 420',
-        'SALAS 501 a 520', 'SALAS 601 a 620', 'SALAS 701 a 720',
-        'BIBLIOTECA', 'COORDENAÇÃO BLOCO A', 'SALA DE ESTUDOS', 'BANHEIROS A',
-        'AUDITÓRIO', 'CANTINA A', 'XEROX', 'LABORATÓRIO A1', 'SECRETARIA'
+        'ADMINISTRATIVO', 'COORDENAÇÕES DE CURSO', 'DIRETORIAS', 'TUTORIAS 1 A 7',
+        'ANATOMIA 1 E 2', 'ANATOMIA 3D', 'LABORATÓRIO DE INFORMATICA 1 A 3',
+        'LABORATÓRIO DE HARDWARE', 'SALAS 401 A 416', 'SALAS 301 A 320', 'SALAS 201 A 220',
+        'ATENDIMENTO AO ALUNO', 'QUERO SER ALUNO', 'AUDITÓRIO 1 E 2', 'NEGOCIAÇÃO', 'SALA DE ESTUDOS',
+        'BIBLIOTECA', 'ACHADOS E PERDIDOS', 'SALÃO NOBRE'
     ],
     'B': [
         'SALAS 101 a 120', 'SALAS 201 a 220', 'SALAS 301 a 320',
@@ -16,7 +17,8 @@ let userChoices = { entry: '', targetBlock: '', room: '' };
 
 
 const videoLinks = {
-    "B_para_B_SALAS_301_a_320": "KDg90L66kZM",
+    "A_para_A_ADMINISTRATIVO": "KDg90L66kZM",
+
 };
 
 window.onload = () => {
